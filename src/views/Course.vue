@@ -8,7 +8,7 @@
                     :to="{name: 'Author', params: {id: course.created_by.id }}"
                     class="subtitle"
                 >
-                    By {{ course.created_by.first_name + ' ' + course.created_by.last_name }}
+                    By {{ course.created_by.last_name + ' ' + course.created_by.first_name }}
                 </router-link>
             </div>
         </div>

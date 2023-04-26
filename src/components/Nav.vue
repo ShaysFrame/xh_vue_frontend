@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar is-warning" role="navigation" aria-label="main navigation" style="min-height: 5rem;">
       <div class="navbar-brand">
-        <router-link class="navbar-item is-size-4" to="/">
+        <router-link class="navbar-item" to="/">
           <img src="../assets/xh_logo.png">
         </router-link>
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="toggleNavbar">
@@ -21,10 +21,12 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <template v-if="$store.state.user.isAuthenticated">
+              <template v-if="$store.state.user.isAuthenticated && $store.state.userGroups && $store.state.userGroups.includes('teacher')">
                 <router-link to="/dashboard/create-course" class="button is-dark">Create course</router-link>
-                <router-link to="/dashboard/my-account" class="button is-light">My account</router-link>
               </template>
+              <template v-if="$store.state.user.isAuthenticated">
+                <router-link to="/dashboard/my-account" class="button is-light">My account</router-link>
+              </template> 
   
               <template v-else>
                 <router-link to="/sign-up" class="button is-dark"><strong>Sign up</strong></router-link>
@@ -43,6 +45,10 @@
       return {
         isNavbarActive: false,
       };
+    },
+    created() {
+      // Call the fetchUserGroups action to get the user groups data
+      this.$store.dispatch("fetchUserGroups");
     },
     methods: {
       toggleNavbar() {

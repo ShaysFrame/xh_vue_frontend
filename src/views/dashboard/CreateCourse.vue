@@ -7,7 +7,7 @@
         </div>
 
         <section class="section">
-            <div class="mb-6 px-6 py-4 has-background-grey-lighter">
+            <div class="mb-6 px-6 py-4 has-background-white-ter">
                 <h2 class="subtitle">Meta information</h2>
 
                 <div class="field">
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="mb-6 px-6 py-4 has-background-grey-lighter">
+            <div class="mb-6 px-6 py-4 has-background-white-ter">
                 <h2 class="subtitle">Lessons</h2>
 
                 <div
@@ -73,12 +73,12 @@
                     <hr>
                 </div>
 
-                <button class="button is-primary" @click="addLesson()">Add lesson</button>
+                <button class="button is-warning is-light" @click="addLesson()">Add lesson</button>
             </div>
 
             <div class="field buttons">
-                <button class="button is-success" @click="submitForm('draft')">Save as draft</button>
-                <button class="button is-info" @click="submitForm('review')">Submit for review</button>
+                <button class="button is-success is-light" @click="submitForm('draft')">Save as draft</button>
+                <button class="button is-info is-light" @click="submitForm('review')">Submit for review</button>
             </div>
         </section>
     </div>
