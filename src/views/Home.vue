@@ -102,6 +102,20 @@ export default {
     axios.get("courses/get_frontpage_courses/").then((response) => {
       console.log(response.data);
 
+      // Suffle the courses array using the Fisher-Yates shuffle alogrithm
+      let currentIndex = response.data.length;
+      let temporraryValue;
+      let randomIndex;
+
+      while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        temporraryValue = response.data[currentIndex];
+        response.data[currentIndex] = response.data[randomIndex];
+        response.data[randomIndex] = temporraryValue;
+      }
+
       this.courses = response.data;
     });
   },
