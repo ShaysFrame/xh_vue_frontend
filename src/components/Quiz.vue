@@ -25,11 +25,11 @@
         </div>
 
         <template v-if="quizResult == 'correct'">
-            <div class="notification is-success mt-4">Correct :-D</div>
+            <div class="notification is-success mt-4">Congratulations! You're Correct!</div>
         </template>
 
         <template v-if="quizResult == 'incorrect'">
-            <div class="notification is-danger mt-4">Wrong :-( Please try again!</div>
+            <div class="notification is-danger mt-4">Wrong Answer! Try again!</div>
         </template>
     </div>
 </template>
